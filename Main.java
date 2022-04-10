@@ -1,28 +1,34 @@
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-public class Main {
-    public static void main(String[] args) {
+public class Main
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        // your code goes here
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while(t-->0){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int c = sc.nextInt();
-            int d = sc.nextInt();
-            int e = sc.nextInt();
-            if(a+b <=d && c<=e){
-                System.out.println("Yes");
+            long a = sc.nextLong();
+            long b =sc.nextLong();
+            if(b==1 || a==1){
+                System.out.println(-1);
             }
-            else if(a+c<=d && b<=e){
-                System.out.println("yes");
-            }
-            else if(b+c<=d && a<=e){
-                System.out.println("Yes");
+            else if(hcf(a,b)==1){
+                System.out.println(1);
             }
             else{
-                System.out.println("No");
+                System.out.println(0);
             }
         }
+    }
+    public static long hcf(long a,long b){
+        while(b%a !=0){
+            long t = b%a;
+            b = a;
+            a = t;
+        }
+        return a;
     }
 }
